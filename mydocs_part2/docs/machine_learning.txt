@@ -1,0 +1,13 @@
+Machine Learning
+
+Machine learning is a subset of artificial intelligence.
+
+It allows computers to learn patterns from data without being explicitly programmed for every task.
+
+Machine learning can be used for classification, regression, prediction, recommendation systems, and pattern recognition.
+
+Supervised learning uses labeled data to train a model.
+
+Unsupervised learning works with unlabeled data and can discover hidden patterns.
+
+Reinforcement learning allows an agent to learn by interacting with an environment and receiving rewards or penalties.
