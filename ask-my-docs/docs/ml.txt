@@ -1,0 +1,9 @@
+Machine learning is a branch of artificial intelligence.
+It allows computers to learn patterns from data.
+Supervised learning uses labelled training data.
+Unsupervised learning finds patterns in unlabelled data.
+Common machine learning algorithms include Linear Regression,
+Decision Tree, Random Forest and Logistic Regression.
+Machine learning is used for prediction and classification.
+The main purpose of machine learning is to learn from data
+and make predictions or decisions without being explicitly programmed.

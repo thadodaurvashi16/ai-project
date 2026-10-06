@@ -1,0 +1,7 @@
+Deep learning is a subset of machine learning.
+It uses artificial neural networks with multiple layers.
+Neural networks contain input, hidden and output layers.
+CNNs are commonly used for image classification.
+RNNs can be used to process sequential data.
+Deep learning is widely used in computer vision,
+natural language processing and speech recognition.
