@@ -1,0 +1,12 @@
+Deep Learning is a subset of Machine Learning.
+
+Deep Learning uses artificial neural networks with multiple layers
+to learn complex patterns from large amounts of data.
+
+Deep learning is commonly used in image recognition,
+speech recognition, natural language processing,
+and computer vision.
+
+Convolutional Neural Networks are commonly used for image-related
+tasks, while Recurrent Neural Networks and Transformers can be
+used for sequential and language-related tasks.

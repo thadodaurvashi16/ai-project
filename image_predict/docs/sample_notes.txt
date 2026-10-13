@@ -1,0 +1,14 @@
+
+Machine Learning Notes
+
+Machine Learning is a branch of Artificial Intelligence.
+It enables computers to learn patterns from data.
+
+Supervised Learning uses labeled data.
+Examples include spam detection and house price prediction.
+
+Unsupervised Learning finds patterns in unlabeled data.
+K-Means is an example of an unsupervised learning algorithm.
+
+Reinforcement Learning learns through rewards and penalties.
+It is used in robotics and game-playing systems.
