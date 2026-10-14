@@ -58,51 +58,81 @@
 #             )
 
 
+import streamlit as st
 import pickle
 from pathlib import Path
-import streamlit as st
 
+
+# -----------------------------
+# Page Configuration
+# -----------------------------
 st.set_page_config(
     page_title="SMS Spam Detector",
-    page_icon="📩"
+    page_icon="📩",
+    layout="centered"
 )
 
-st.title("📩 SMS Spam Detector")
-st.write("Enter an SMS message and check whether it is Spam or Not Spam.")
 
-# frontend/ થી root ડિરેક્ટરી અને model પાથ મેળવો
-CURRENT_DIR = Path(__file__).resolve().parent
-BASE_DIR = CURRENT_DIR.parent
+# -----------------------------
+# Paths
+# -----------------------------
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 MODEL_PATH = BASE_DIR / "model" / "spam_model.pkl"
 VECTORIZER_PATH = BASE_DIR / "model" / "vectorizer.pkl"
 
+
+# -----------------------------
+# Load Model and Vectorizer
+# -----------------------------
 @st.cache_resource
-def load_assets():
-    if not MODEL_PATH.exists() or not VECTORIZER_PATH.exists():
-        raise FileNotFoundError(f"Model files missing at: {MODEL_PATH} or {VECTORIZER_PATH}")
-    
-    with open(MODEL_PATH, "rb") as f:
-        model = pickle.load(f)
-    with open(VECTORIZER_PATH, "rb") as f:
-        vectorizer = pickle.load(f)
+def load_model():
+
+    with open(MODEL_PATH, "rb") as file:
+        model = pickle.load(file)
+
+    with open(VECTORIZER_PATH, "rb") as file:
+        vectorizer = pickle.load(file)
+
     return model, vectorizer
 
-try:
-    model, vectorizer = load_assets()
-except Exception as e:
-    st.error(f"Error loading model files: {e}")
-    st.stop()
 
-message = st.text_area("Enter your message:", height=150)
+model, vectorizer = load_model()
 
-if st.button("Predict"):
-    if not message.strip():
+
+# -----------------------------
+# UI
+# -----------------------------
+st.title("📩 SMS Spam Detector")
+
+st.write(
+    "Enter an SMS message and check whether it is Spam or Not Spam."
+)
+
+
+message = st.text_area(
+    "Enter your message:",
+    height=150,
+    placeholder="Example: Congratulations! You won a free prize!"
+)
+
+
+# -----------------------------
+# Prediction
+# -----------------------------
+if st.button("Predict", type="primary"):
+
+    if message.strip() == "":
         st.warning("Please enter a message.")
-    else:
-        msg_vector = vectorizer.transform([message])
-        prediction = model.predict(msg_vector)[0]
 
-        if prediction == 1 or prediction == "Spam":
+    else:
+
+        message_vector = vectorizer.transform([message])
+
+        prediction = model.predict(message_vector)[0]
+
+        if prediction == 1:
             st.error("🚨 This message is SPAM!")
+
         else:
             st.success("✅ This message is NOT SPAM.")
