@@ -3,5 +3,6 @@ __pycache__/
 .ipynb_checkpoints/
 *.pyc.env
 **/.env
+*.zip
 
 review-sentiment-dashboard/data/Reviews.csv
